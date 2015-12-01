@@ -6,7 +6,7 @@
   "activationCommands": {
     "atom-workspace": "debugger:toggle"
   },
-  "repository": "https://github.com/xndcn/atom-debugger",
+  "repository": "https://github.com/longseespace/atom-android-debugger",
   "license": "MIT",
   "engines": {
     "atom": ">=0.174.0 <2.0.0"
@@ -15,6 +15,7 @@
     "atom-space-pen-views": "^2.0.0"
   },
   "keywords": [
+    "android",
     "debugger",
     "gdb",
     "debug",
