@@ -1,7 +1,7 @@
 {
   "name": "android-debugger",
   "main": "./lib/debugger",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Android remote GDB debugger",
   "activationCommands": {
     "atom-workspace": "debugger:toggle"
