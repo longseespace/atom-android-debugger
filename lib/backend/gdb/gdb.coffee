@@ -7,6 +7,8 @@ module.exports =
     STATUS =
       NOTHING: 0
       RUNNING: 1
+      STOPPED: 2
+      DESTROYED: 3
 
     constructor: (gdb, target) ->
       @token = 0
@@ -46,16 +48,28 @@ module.exports =
       @status = STATUS.NOTHING
 
     destroy: ->
+      @status = STATUS.DESTROYED
       @process.kill()
       @emitter.dispose()
+
+    isRunning: ->
+      @status is STATUS.RUNNING
+
+    isStopped: ->
+      @status is STATUS.STOPPED
+
+    isDestroyed: ->
+      @status is STATUS.DESTROYED
 
     onExecAsyncOutput: (callback) ->
       @emitter.on 'exec-async-output', callback
 
     onExecAsyncStopped: (callback) ->
+      @status = STATUS.STOPPED
       @emitter.on 'exec-async-stopped', callback
 
     onExecAsyncRunning: (callback) ->
+      @status = STATUS.RUNNING
       @emitter.on 'exec-async-running', callback
 
     listFiles: (handler) ->

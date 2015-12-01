@@ -237,11 +237,12 @@ class DebuggerView extends View
     gutter ?= component.gutterContainerComponent
 
     gutter.domNode.addEventListener 'dblclick', (event) =>
-      position = component.screenPositionForMouseEvent(event)
-      line = editor.bufferPositionForScreenPosition(position).row
-      @toggleBreak(editor, line)
-      selection = editor.selectionsForScreenRows(line, line + 1)[0]
-      selection?.clear()
+      unless @GDB.isDestroyed()
+        position = component.screenPositionForMouseEvent(event)
+        line = editor.bufferPositionForScreenPosition(position).row
+        @toggleBreak(editor, line)
+        selection = editor.selectionsForScreenRows(line, line + 1)[0]
+        selection?.clear()
 
   handleEvents: ->
     @subscriptions = new CompositeDisposable
@@ -295,6 +296,10 @@ class DebuggerView extends View
 
     @stepIntoButton.on 'click', =>
       @GDB.step (result) ->
+        console.log(result)
+
+    @stepOutButton.on 'click', =>
+      @GDB.finish (result) ->
         console.log(result)
 
     @GDB.onExecAsyncRunning (result) =>
