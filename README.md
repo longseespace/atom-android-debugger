@@ -1,14 +1,12 @@
-# atom-debugger package
+# atom-android-debugger package
 
-This is a debugger for atom.io, which now only support `gdb`.
+This is a fork from [https://github.com/xndcn/atom-debugger](https://github.com/xndcn/atom-debugger)
 
-This package is still in very early stage. In fact, I'm not sure whether there are people using atom.io to debug.
+Before debugging, please add your source root directory into the tree-view and config as follow (change paths to match yours):
 
-Please feel free to create issues if you have any problem or good ideas, thank you!
+![config](https://raw.githubusercontent.com/longseespace/atom-android-debugger/master/config.png?raw=true)
 
-Before debugging, please add your source root directory into the tree-view.
-
-![screenshot](https://raw.githubusercontent.com/xndcn/atom-debugger/master/screenshot.png?raw=true)
+![screenshot](https://raw.githubusercontent.com/longseespace/atom-android-debugger/master/screenshot.png?raw=true)
 
 
 ## TO DO
